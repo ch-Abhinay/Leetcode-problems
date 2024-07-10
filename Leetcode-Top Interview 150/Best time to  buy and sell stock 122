@@ -1,0 +1,16 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        profit=0
+        buy=99999999
+        sell=0
+        ans=0
+        for i in prices:
+            if buy>i:
+                buy=i
+            t=i-buy
+            ans+=t
+            if t>profit:
+                sell=i
+                profit=0
+                buy=i
+        return ans
